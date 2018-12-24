@@ -1,4 +1,3 @@
-// app/controller/topic.js
 const Controller = require('egg').Controller;
 
 class TopicController extends Controller {
@@ -11,6 +10,7 @@ class TopicController extends Controller {
         const ctx = this.ctx;
         ctx.body = await ctx.service.topic.list();
     }
+
     /**
      * @param 新增讨论话题
      * @method POST
@@ -20,6 +20,7 @@ class TopicController extends Controller {
         const ctx = this.ctx;
         ctx.body = await ctx.service.topic.create();
     }
+
     /**
      * @param 查看讨论话题详情
      * @method GET
@@ -30,4 +31,5 @@ class TopicController extends Controller {
         ctx.body = await ctx.service.topic.show();
     }
 }
+
 module.exports = TopicController;

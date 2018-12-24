@@ -1,4 +1,3 @@
-// app/controller/dictionary.js
 const Controller = require('egg').Controller;
 
 class DictionaryController extends Controller {
@@ -12,4 +11,5 @@ class DictionaryController extends Controller {
         ctx.body = await ctx.service.dictionary.show();
     }
 }
+
 module.exports = DictionaryController;

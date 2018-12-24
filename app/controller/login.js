@@ -1,4 +1,3 @@
-// app/controller/login.js
 const Controller = require('egg').Controller;
 
 class LoginController extends Controller {
@@ -12,4 +11,5 @@ class LoginController extends Controller {
         ctx.body = await ctx.service.login.index();
     }
 }
+
 module.exports = LoginController;

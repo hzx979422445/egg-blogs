@@ -1,4 +1,3 @@
-// app/controller/user.js
 const Controller = require('egg').Controller;
 
 class UserController extends Controller {
@@ -11,6 +10,7 @@ class UserController extends Controller {
         const ctx = this.ctx;
         ctx.body = await ctx.service.user.create();
     }
+
     /**
      * @param 修改用户
      * @method PUT
@@ -20,6 +20,7 @@ class UserController extends Controller {
         const ctx = this.ctx;
         ctx.body = await ctx.service.user.update();
     }
+
     /**
      * @param 查看用户详情
      * @method GET
@@ -30,4 +31,5 @@ class UserController extends Controller {
         ctx.body = await ctx.service.user.show();
     }
 }
+
 module.exports = UserController;

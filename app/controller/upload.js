@@ -1,4 +1,3 @@
-// app/controller/upload.js
 const Controller = require('egg').Controller;
 
 class UploadController extends Controller {
@@ -11,6 +10,7 @@ class UploadController extends Controller {
         const ctx = this.ctx;
         ctx.body = await ctx.service.upload.create();
     }
+
     /**
      * @param 文件删除
      * @method DELETE
@@ -21,4 +21,5 @@ class UploadController extends Controller {
         ctx.body = await ctx.service.upload.delete();
     }
 }
+
 module.exports = UploadController;

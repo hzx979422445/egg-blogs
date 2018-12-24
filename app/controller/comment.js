@@ -1,4 +1,3 @@
-// app/controller/comment.js
 const Controller = require('egg').Controller;
 
 class CommentController extends Controller {
@@ -11,6 +10,7 @@ class CommentController extends Controller {
         const ctx = this.ctx;
         ctx.body = await ctx.service.comment.show();
     }
+
     /**
      * @param 新增评论
      * @method POST
@@ -21,4 +21,5 @@ class CommentController extends Controller {
         ctx.body = await ctx.service.comment.create();
     }
 }
+
 module.exports = CommentController;

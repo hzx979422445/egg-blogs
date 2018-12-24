@@ -4,7 +4,7 @@
  * @param {Egg.Application} app - egg application
  */
 module.exports = app => {
-  const { router, controller } = app;
+    const {router, controller} = app;
     /**
      * @param 字典管理
      */
@@ -20,7 +20,7 @@ module.exports = app => {
     /**
      * @param 登录接口
      */
-   router.post('/hzx/v1/login',controller.login.index);
+    router.post('/hzx/v1/login', controller.login.index);
     /**
      * @param 用户管理
      */
@@ -28,7 +28,6 @@ module.exports = app => {
     /**
      * @param 话题管理
      */
-   /* router.resources('topic', '/hzx/v1/topic', controller.topic);*/
     router.post('/hzx/v1/topic/', controller.topic.list);
     router.post('/hzx/v1/topic/add', controller.topic.create);
     router.get('/hzx/v1/topic/:id', controller.topic.show);

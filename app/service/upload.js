@@ -18,9 +18,9 @@ class UploadService extends Service {
         const filename = uuid.v1() + path
             .extname(stream.filename)
             .toLocaleLowerCase();
-       /* if(! fs.existsSync()){
-            fs.mkdirSync(path.join(this.config.baseDir,'app/public/uploads'));
-        }*/
+        /* if(! fs.existsSync()){
+             fs.mkdirSync(path.join(this.config.baseDir,'app/public/uploads'));
+         }*/
         const target = path.join(this.config.baseDir, 'app/public/uploads', filename);
         //生成一个文件写入 文件流
         const writeStream = fs.createWriteStream(target);
@@ -33,33 +33,35 @@ class UploadService extends Service {
             throw err;
         }
         let hostname;
-        if(this.config.cluster.listen.hostname == ""){
-             hostname = '127.0.0.1';
-        }else{
+        if (this.config.cluster.listen.hostname == "") {
+            hostname = '127.0.0.1';
+        } else {
             hostname = this.config.cluster.listen.hostname;
         }
         return {
-            code:100000,
-            body:{
-                "message":'http://'+hostname+":"+this.config.cluster.listen.port +'/public/uploads/' + filename,
+            code: 100000,
+            body: {
+                "message": 'http://' + hostname + ":" + this.config.cluster.listen.port + '/public/uploads/' + filename,
             }
         }
     }
+
     async delete() {
         const ctx = this.ctx;
         const deleteData = ctx.request.body;
-        if(deleteData.length > 0){
-            for(var i = 0; i < deleteData.length; i++){
+        if (deleteData.length > 0) {
+            for (var i = 0; i < deleteData.length; i++) {
                 const target = path.join(this.config.baseDir, 'app/public/uploads', deleteData[i]);
                 fs.unlinkSync(target)
             }
         }
         return {
-            code:100000,
-            body:{
-                "code":200,
+            code: 100000,
+            body: {
+                "code": 200,
             }
         }
     }
 }
+
 module.exports = UploadService;

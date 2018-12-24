@@ -4,11 +4,11 @@ module.exports = app => {
     const Schema = mongoose.Schema;
     //定义了表数据的类型
     const UserSchema = new Schema({
-        userName: { type: String  },
-        accountNumer: { type: String},
-        password:{type : String },
-        remark:{type : String },
-        user_img:{type : String }
+        userName: {type: String},
+        accountNumer: {type: String},
+        password: {type: String},
+        remark: {type: String},
+        user_img: {type: String}
     });
-    return mongoose.model('User', UserSchema,'user');
+    return mongoose.model('User', UserSchema, 'user');
 }
