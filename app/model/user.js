@@ -8,7 +8,8 @@ module.exports = app => {
         accountNumer: {type: String},
         password: {type: String},
         remark: {type: String},
-        user_img: {type: String}
+        user_img: {type: String},
+        collect: {type: Array}
     });
     return mongoose.model('User', UserSchema, 'user');
 }
