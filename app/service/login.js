@@ -49,6 +49,14 @@ class LoginService extends Service {
                     };
                 }
 
+            } else {
+                return {
+                    code: 100000,
+                    body: {
+                        "message": "账号不存在",
+                        "code": 300
+                    }
+                };
             }
         }).catch(err => {
             return {
