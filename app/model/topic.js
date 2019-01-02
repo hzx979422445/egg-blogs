@@ -28,7 +28,8 @@ module.exports = app => {
                 let resData = {
                     code: 100000,
                     body: {
-                        data: list
+                        data: list,
+                        curPage: pageNo
                     }
                 }
                 return this.find(data).then((list) => {
